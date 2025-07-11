@@ -1,8 +1,7 @@
-# Definizione delle variabili richieste
-giorni_utili = 0  # Sostituisci 0 con il valore corretto o una lista, se necessario
-x_labels = []     # Sostituisci con la lista delle etichette dei giorni
-ore_A = []        # Sostituisci con la lista delle ore per Persona A
-ore_B_default = [] # Sostituisci con la lista di default per Persona B
+giorni_utili =  [1, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 25, 26, 27, 28, 29]  
+x_labels = ['1/8', '4/8', '5/8', '6/8', '7/8', '8/8', '11/8', '12/8', '13/8', '14/8', '15/8', '18/8', '19/8', '20/8', '21/8', '22/8', '25/8', '26/8', '27/8', '28/8', '29/8']
+ore_A = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+ore_B_default = [0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 5.43, 5.43, 5.43, 5.43, 5.43, 5.43, 5.43, 5.43, 5.43, 5.43, 5.43]
 
 dash_code_v2 = f'''
 from dash import Dash, dcc, html, Input, Output, State, ctx
@@ -16,7 +15,6 @@ x_labels = {x_labels}
 ore_A = {ore_A}
 totale_target = sum(ore_A)
 
-# Inizializzazione ore_B come lista di default
 ore_B_default = {ore_B_default}
 
 app.layout = html.Div([
@@ -92,7 +90,6 @@ if __name__ == "__main__":
     app.run(debug=True)
 '''
 
-# Scrivo il file aggiornato
 file_path_v2 = "app_fsae_bilanciamento_dinamico.py"
 with open(file_path_v2, "w") as f:
     f.write(dash_code_v2)
